@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#234c3b">
+  <title>今天吃什么 · 一起好好吃饭</title>
+  <meta name="description" content="把午餐交给一点惊喜。和同桌共享抽签、午餐日历与每天的三次反悔机会。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23234c3b'/%3E%3Ctext x='9' y='46' font-size='44'%3E🍚%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="今天吃什么首页"><span class="brand-icon">食</span><span>今天吃什么<small>WHAT TO EAT TODAY</small></span></a>
+      <p class="nav-label">一餐一日，好好生活</p>
+      <nav aria-label="主导航">
+        <button class="nav-item active" data-view="today" aria-current="page"><span aria-hidden="true">◈</span> 今日抽签</button>
+        <button class="nav-item" data-view="calendar"><span aria-hidden="true">▦</span> 午餐日历</button>
+        <button class="nav-item" data-view="options"><span aria-hidden="true">☷</span> 午餐清单</button>
+        <button class="nav-item" data-view="group"><span aria-hidden="true">♧</span> 同桌群组</button>
+      </nav>
+      <div class="sidebar-note"><span class="small-leaf">✳</span><p>少一点纠结，<br>多一点午餐的期待。</p><small>每天，只为好好吃一顿。</small></div>
+      <div class="profile"><span class="avatar" id="avatar">客</span><div><strong id="username">正在连接</strong><small id="account-caption">个人午餐空间</small></div><button id="account-button" class="text-button">登录</button></div>
+    </aside>
+
+    <main id="main-content">
+      <header class="topbar"><span id="date-label">今天，也要好好吃饭</span><span id="sync-status" class="sync" role="status">正在连接…</span></header>
+      <div id="connection-error" class="notice error" hidden>连接中断，正在重试。显示的是上次同步的数据。</div>
+
+      <section id="view-today" class="view">
+        <div class="page-heading"><div><p class="eyebrow">A LITTLE SURPRISE FOR LUNCH</p><h1>把午餐，交给一点惊喜。</h1><p class="muted">今天的选择困难，就到这里。</p></div><span id="mode-badge" class="badge">个人餐桌</span></div>
+        <div class="hero">
+          <div class="hero-copy"><span class="hero-label" id="result-caption">今天的午餐，等你揭晓</span><h2 id="result" aria-live="polite">准备好开饭了吗？</h2><p id="result-hint">从你的午餐清单里，选一份刚刚好的快乐。</p><button id="draw-button" class="button light" disabled>正在连接… <span aria-hidden="true">↗</span></button><div id="reroll-status" class="hero-footnote">首次抽签不消耗反悔机会</div></div>
+          <div class="meal-art" aria-hidden="true"><svg viewBox="0 0 360 330" fill="none"><ellipse cx="180" cy="282" rx="129" ry="18" fill="#153d2c" opacity=".5"/><path d="M52 153h256c-7 77-48 126-128 126S59 230 52 153Z" fill="#f3e4c9"/><path d="M60 179c27 20 206 20 240-1" stroke="#d7c3a0" stroke-width="4"/><ellipse cx="180" cy="152" rx="129" ry="48" fill="#d7c3a0"/><ellipse cx="180" cy="147" rx="118" ry="40" fill="#fff7e6"/><path d="M81 153c-3-39 38-67 94-60 50-12 102 16 104 57-57 31-137 37-198 3Z" fill="#fffdf5"/><path d="m101 136 8-5m11 21 8 2m14-33 7 2m18 22 7-3m34-25 7 1m-21 40 6-2m35-16 6 3m-76-40 7 1" stroke="#e7d5ad" stroke-width="4" stroke-linecap="round"/><path d="M207 110c-15-11-11-35 5-40 0-18 35-15 37 1 22 0 23 24 12 32-5 22-29 28-39 12Z" fill="#87a56b"/><path d="m222 112 15-29m-11 16-9-8m15 0 13 1" stroke="#567847" stroke-width="3" stroke-linecap="round"/><ellipse cx="134" cy="112" rx="29" ry="20" transform="rotate(-17 134 112)" fill="#e8b45e"/><ellipse cx="134" cy="111" rx="15" ry="12" fill="#dc8241"/><path d="m267 103 51-77m-40 83 54-76" stroke="#e7bd82" stroke-width="7" stroke-linecap="round"/><path d="M132 67c-13-16 12-22 1-40m39 34c-12-15 13-22 2-39" stroke="#cbd5bb" stroke-width="4" stroke-linecap="round" opacity=".55"/><path d="m54 79 3 9m-7-4 11-2m231 142 3 10m-8-4 12-2" stroke="#dabd79" stroke-width="3" stroke-linecap="round"/></svg><span class="art-stamp">一餐 · 一点小确幸</span></div>
+        </div>
+        <div class="stats"><div><span class="stat-symbol">☷</span><div><strong id="option-count">—</strong><span>个午餐选项</span></div></div><div><span class="stat-symbol">↻</span><div><strong id="remaining-count">3</strong><span>次今日剩余反悔</span></div></div><div><span class="stat-symbol">▦</span><div><strong id="record-count">—</strong><span>天本月午餐记忆</span></div></div></div>
+        <div class="section-heading"><h2>午餐候选名单 <span id="preview-count"></span></h2><button class="text-button" data-view="options">管理清单 ↗</button></div>
+        <div id="option-preview" class="option-preview"><p class="muted">正在读取午餐清单…</p></div>
+        <div class="together-card"><span class="together-icon" aria-hidden="true">♧</span><div><h3 id="together-title">和同桌一起，少一点纠结</h3><p id="together-caption">创建一个群组，让大家的午餐选择同步发生。</p></div><button class="button secondary" data-view="group">我的群组 ↗</button></div>
+        <p class="rule-note">按偏好随机 · 工作日避免过度重复 · 每天保留最终结果</p>
+      </section>
+
+      <section id="view-calendar" class="view" hidden>
+        <div class="page-heading"><div><p class="eyebrow">A MONTH OF LITTLE MEMORIES</p><h1>午餐日历</h1><p class="muted">吃过的每一餐，都有迹可循。</p></div></div>
+        <div class="panel"><div class="calendar-toolbar"><div><button id="previous-month" class="icon-button" aria-label="上个月">←</button><input id="month-input" type="month" min="1900-01" max="9998-12" aria-label="选择年月"><button id="next-month" class="icon-button" aria-label="下个月">→</button></div><button id="current-month" class="button secondary">回到本月</button></div><div class="weekdays" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div><div id="calendar-grid" class="calendar-grid" aria-label="午餐月历"></div><p class="muted small">点击日期查看完整记录。群组记录标注群名；退群后保留在群期间的日历快照。</p></div>
+      </section>
+
+      <section id="view-options" class="view" hidden>
+        <div class="page-heading"><div><p class="eyebrow">YOUR LUNCH, YOUR WAY</p><h1>午餐清单</h1><p class="muted" id="options-caption">把想吃的都放进来，再给喜欢的多一点机会。</p></div><button id="reset-weights" class="button secondary">恢复均等权重</button></div>
+        <div class="options-layout"><div class="panel"><div class="section-heading"><h2>想吃的，都在这里</h2><span class="badge" id="list-count">0 项</span></div><div id="options-list"></div></div><div class="panel add-panel"><p class="eyebrow">ADD SOMETHING GOOD</p><h2>下一餐的灵感</h2><form id="add-form"><label for="new-options">新增午餐选项</label><textarea id="new-options" rows="6" placeholder="牛肉面&#10;轻食沙拉&#10;家常小炒" required maxlength="4100"></textarea><p class="muted small">每行一项，每项最多 40 字，名称不能重复。新增选项自动分配权重。</p><button class="button primary" type="submit">＋ 加入清单</button></form><hr><p class="muted small">修改一项百分比时，其余选项按原比例分配剩余权重。删除选项会保留历史日历。</p></div></div>
+      </section>
+
+      <section id="view-group" class="view" hidden>
+        <div class="page-heading"><div><p class="eyebrow">GOOD FOOD, BETTER TOGETHER</p><h1>同桌群组</h1><p class="muted">一个人抽签，一桌人开饭。</p></div><span class="badge">每人一个群组</span></div>
+        <div id="group-guest" class="panel empty-state" hidden><span class="large-symbol">♧</span><h2>登录，找到你的同桌</h2><p class="muted">游客可以使用抽签、清单与日历。登录后就能创建或加入群组。</p><button id="group-login" class="button primary">登录 / 注册</button></div>
+        <div id="group-current" class="panel" hidden></div>
+        <div id="group-forms" class="two-columns" hidden><div class="panel"><span class="large-symbol">＋</span><h2>摆一张新餐桌</h2><p class="muted">创建群组，邀请一起吃饭的人。</p><form id="create-group-form"><label for="group-name">群组名</label><input id="group-name" required maxlength="40" placeholder="比如：今天也要准时开饭"><label for="create-code">群组号</label><input id="create-code" required pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16" placeholder="8～16 位数字或英文字母"><p class="muted small">区分大小写。创建时复制你的个人清单，个人日历不会共享。</p><button class="button primary" type="submit">创建群组</button></form></div><div class="panel"><span class="large-symbol">↗</span><h2>和朋友坐一桌</h2><p class="muted">输入朋友的群组号，找到他们。</p><form id="search-group-form"><label for="join-code">群组号</label><input id="join-code" required pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16" placeholder="输入完整群组号"><button class="button secondary" type="submit">搜索群组</button></form><div id="search-result" aria-live="polite"></div></div></div>
+        <div class="notice"><strong>一起吃饭的约定</strong><p>同桌共用午餐清单、当天结果和 3 次反悔机会。入群日期起共享日历，退群时保留在群期间已有的记录。成员在线时约 2 秒同步一次。</p></div>
+      </section>
+      <footer><span>今天吃什么 <span aria-hidden="true">/</span> 一起好好吃饭</span><span>午餐日期统一按 UTC+8</span></footer>
+    </main>
+  </div>
+  <dialog id="auth-dialog" aria-labelledby="auth-title"><div class="dialog-inner"><p class="eyebrow">WELCOME TO YOUR TABLE</p><h2 id="auth-title">欢迎，今天想吃点什么？</h2><p class="muted">登录保存你的午餐日常，也可以先以游客身份逛逛。</p><div class="auth-tabs"><button id="login-tab" class="selected" type="button">登录</button><button id="register-tab" type="button">注册</button></div><form id="auth-form"><label for="auth-username">用户名</label><input id="auth-username" name="username" autocomplete="username" required maxlength="64" placeholder="你的名字"><label for="auth-password">密码</label><input id="auth-password" name="password" type="password" autocomplete="current-password" required placeholder="4～16 位，字符种类不限"><label class="checkbox"><input id="remember" type="checkbox">记住账号密码 <small>30 天内自动登录</small></label><p id="auth-error" class="form-error" role="alert"></p><button id="auth-submit" class="button primary full" type="submit">登录，开始今天的一餐</button></form><button id="guest-button" class="guest-button">先以游客身份使用 →</button><p class="small muted">游客数据保留在此浏览器凭证下，登录后使用独立的账号空间。</p></div></dialog>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title"><div class="dialog-inner"><h2 id="confirm-title">确认操作</h2><p id="confirm-message"></p><div class="dialog-actions"><button id="confirm-no" class="button secondary">取消</button><button id="confirm-yes" class="button primary">继续</button></div></div></dialog>
+  <dialog id="day-dialog" aria-labelledby="day-title"><div class="dialog-inner"><h2 id="day-title"></h2><div id="day-records"></div><button id="close-day" class="button secondary full">关闭</button></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><div class="notice error">请启用 JavaScript 后使用抽签、账号及群组功能。</div></noscript>
+</body>
+</html>

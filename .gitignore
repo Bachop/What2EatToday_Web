@@ -1,0 +1,88 @@
+# 默认忽略所有文件；允许遍历目录，以便下方按路径放行源码。
+*
+!*/
+
+# Git 规则、关键文档、依赖清单及启动入口。
+!/.gitignore
+!/README.md
+!/LICENSE
+!/LICENSE.*
+!/requirements.txt
+!/server.py
+!/run.bat
+!/docs/**/*.md
+
+# 后端、前端、及维护工具源码。
+!/lunch_web/**/*.py
+!/static/**/*.html
+!/static/**/*.css
+!/static/**/*.js
+!/static/**/*.svg
+!/tools/**/*.py
+!/tools/**/*.mjs
+
+# 以下排除规则必须位于白名单之后，防止产物目录中的源码被放行。
+# 运行数据、浏览器截图及探测结果。
+data/
+artifacts/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Python / Node 依赖、缓存、测试和覆盖率产物。
+__pycache__/
+.venv/
+venv/
+env/
+node_modules/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.eggs/
+*.egg-info/
+htmlcov/
+coverage/
+.coverage*
+*.py[cod]
+*$py.class
+
+# 构建目录及编译、打包产物。
+build/
+dist/
+out/
+*.egg
+*.whl
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.pyd
+*.dll
+*.exe
+*.class
+*.map
+*.min.js
+*.min.css
+
+# 本地环境、编辑器配置、日志及临时文件。
+.env
+.env.*
+.idea/
+.vscode/
+logs/
+tmp/
+temp/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
