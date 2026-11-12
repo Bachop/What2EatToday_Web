@@ -1,6 +1,6 @@
 # *What to Eat Today _Web* 今天吃什么 网页版
 
-基于[What2EatToday桌面版](https://github.com/Bachop/What2EatToday)迁移，支持账号、游客及群组共享抽签、反悔次数和午餐日历。运行 `.\.venv\Scripts\python.exe .\web\server.py` 后访问 `http://127.0.0.1:8000`。
+基于[What2EatToday桌面版](https://github.com/Bachop/What2EatToday)迁移，支持账号、游客及群组共享抽签、反悔次数和午餐日历。运行 `.\.venv\Scripts\python.exe .\server.py` 后访问 `http://127.0.0.1:8000`。
 
 ## 快速启动
 
